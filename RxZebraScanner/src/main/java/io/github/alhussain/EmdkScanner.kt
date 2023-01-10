@@ -1,4 +1,4 @@
-package com.alhussain.rxzebrascanner
+package io.github.alhussain
 
 import android.content.Context
 import com.symbol.emdk.EMDKManager

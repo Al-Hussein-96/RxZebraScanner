@@ -1,12 +1,9 @@
-package com.alhussain.rxzebrascanner
+package io.github.alhussain
 
 import android.content.Context
-import dagger.hilt.android.qualifiers.ApplicationContext
 import io.reactivex.Observable
-import javax.inject.Inject
-import javax.inject.Singleton
 
-open class RxZebraScanner constructor(val context: Context) {
+open class RxZebraScanner constructor(private val context: Context) {
     private lateinit var onDataScanning: (text: String) -> Unit
 
     private var emdkScanner: EmdkScanner

@@ -37,21 +37,21 @@ afterEvaluate {
 
                 // Two artifacts, the `aar` (or `jar`) and the sources
                 if (project.plugins.findPlugin("com.android.library")) {
-                    from components.release
+                    artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
                 } else {
-                    from components.java
+                    artifact("$buildDir/libs/${project.getName()}-${version}.jar")
                 }
 
                 artifact androidSourcesJar
 
                 // Mostly self-explanatory metadata
                 pom {
-                    name = PUBLISH_ARTIFACT_ID
+                    name = "RxZebraScanner"
                     description = 'Integrate EMDK zebra scanner with reactive programming (RxJava).'
                     url = 'https://github.com/Al-Hussein-96/RxZebraScanner'
                     signing {
                         sign publishing.publications.release
-//                        sign configurations.archives
+                        sign configurations.archives
                     }
                     licenses {
                         license {
@@ -71,16 +71,16 @@ afterEvaluate {
                         developerConnection = 'scm:git:ssh://github.com/Al-Hussein-96/RxZebraScanner.git'
                         url = 'https://github.com/Al-Hussein-96/RxZebraScanner'
                     }
-                    withXml {
-                        def dependenciesNode = asNode().appendNode('dependencies')
-
-                        project.configurations.implementation.allDependencies.each {
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                        }
-                    }
+//                    withXml {
+//                        def dependenciesNode = asNode().appendNode('dependencies')
+//
+//                        project.configurations.implementation.allDependencies.each {
+//                            def dependencyNode = dependenciesNode.appendNode('dependency')
+//                            dependencyNode.appendNode('groupId', it.group)
+//                            dependencyNode.appendNode('artifactId', it.name)
+//                            dependencyNode.appendNode('version', it.version)
+//                        }
+//                    }
 
                 }
 
