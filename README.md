@@ -39,12 +39,12 @@ For **maven**
 ## How to use it without Hilt:
 
 * How to initialize:
-*
+* 
 ```kotlin
 val rxZebraScanner = RxZebraScanner(applicationContext)
 ```
 
-* use it with RxJava
+* Use rxZebraScanner with RxJava
 
 ```kotlin
 rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
