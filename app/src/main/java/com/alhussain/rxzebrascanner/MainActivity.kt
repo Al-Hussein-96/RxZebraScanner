@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 
 
 class MainActivity : AppCompatActivity() {
-    var compositeDisposable = CompositeDisposable()
+    private var compositeDisposable = CompositeDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
 
         val rxZebraScanner = RxZebraScanner(applicationContext)
 
-        compositeDisposable.add(
-            rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread()).subscribe() {
-                    Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
-                }
-        )
+//        compositeDisposable.add(
+//            rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread()).subscribe() {
+//                    Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+//                }
+//        )
 
 
     }
