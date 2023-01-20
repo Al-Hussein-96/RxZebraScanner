@@ -1,8 +1,7 @@
-package io.github.alhussain
+package com.alhussain.rxzebrascanner
 
 import android.content.Context
 import com.symbol.emdk.EMDKManager
-import com.symbol.emdk.EMDKResults
 import com.symbol.emdk.barcode.*
 import timber.log.Timber
 

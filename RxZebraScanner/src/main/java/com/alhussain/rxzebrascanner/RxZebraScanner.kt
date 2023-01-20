@@ -1,6 +1,7 @@
-package io.github.alhussain
+package com.alhussain.rxzebrascanner
 
 import android.content.Context
+import com.alhussain.rxzebrascanner.EmdkScanner
 import io.reactivex.Observable
 
 open class RxZebraScanner constructor(private val context: Context) {
