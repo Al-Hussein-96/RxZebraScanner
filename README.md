@@ -10,18 +10,10 @@ Integrate EMDK zebra scanner with reactive programming (RxJava).
 First add kotlin to your project, in `build.gradle` **project level**:
 
 ```gradle
-buildscript {
-    ext.kotlin_version = '1.5.31'
-    dependencies {
-        ...
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-...
 allprojects {
     repositories {
-        ...
         mavenCentral()
+        ...
     }
 }
 ```
@@ -29,12 +21,9 @@ allprojects {
 Then add this line to `build.gradle` **app module level**:
 
 ```gradle
-apply plugin: 'kotlin-android'
-...
 dependencies {
 	implementation 'io.github.Al-Hussein-96:RxZebraScanner:1.0'
 }
-
 ```
 
 For **maven**
