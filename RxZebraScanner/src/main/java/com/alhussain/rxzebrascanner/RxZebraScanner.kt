@@ -5,6 +5,7 @@ import com.alhussain.rxzebrascanner.EmdkScanner
 import io.reactivex.Observable
 
 open class RxZebraScanner constructor(private val context: Context) {
+
     private lateinit var onDataScanning: (text: String) -> Unit
 
     private var emdkScanner: EmdkScanner
