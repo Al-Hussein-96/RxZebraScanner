@@ -51,12 +51,32 @@ For **maven**
 val rxZebraScanner = RxZebraScanner(applicationContext)
 ```
 
-## How to use:
+## How to use it without Hilt:
 ```kotlin
 rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
     .observeOn(AndroidSchedulers.mainThread()).subscribe() {
         Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
     }
+```
+
+## How to use it with Hilt:
+
+* Create class which extends from RxZebraScanner and Inject it by hilt:
+```kotlin
+@Singleton
+class ZebraClient @Inject constructor(@ApplicationContext  context: Context) : RxZebraScanner(context)
+```
+
+* Use ZebraClient with RxJava
+```kotlin
+zebraClient.getScannerAsObserve().throttleFirst(2000, TimeUnit.MILLISECONDS).subscribe {
+    Timber.i("BASE_SCANNER: %s", it)
+
+    /**
+     * Handle scanned qr code here
+     */
+
+}
 ```
 
 

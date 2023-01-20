@@ -1,6 +1,7 @@
 package com.alhussain.rxzebrascanner
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,6 +23,10 @@ class MainActivity : AppCompatActivity() {
             rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe() {
                     Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+
+                    findViewById<TextView>(R.id.barcode).text = it
+
+
                 }
         )
 
