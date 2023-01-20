@@ -35,12 +35,17 @@ For **maven**
     <version>1.0</version>
 </dependency>
 ```
-## How to initialize:
+
+## How to use it without Hilt:
+
+* How to initialize:
+* 
 ```kotlin
 val rxZebraScanner = RxZebraScanner(applicationContext)
 ```
 
-## How to use it without Hilt:
+* use it with RxJava
+
 ```kotlin
 rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
     .observeOn(AndroidSchedulers.mainThread()).subscribe() {
@@ -50,7 +55,12 @@ rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
 
 ## How to use it with Hilt:
 
+* note: if you want full example change branch from master to hilt
+
+after adding the hilt library...
+
 * Create class which extends from RxZebraScanner and Inject it by hilt:
+
 ```kotlin
 @Singleton
 class ZebraClient @Inject constructor(@ApplicationContext  context: Context) : RxZebraScanner(context)
