@@ -107,7 +107,6 @@ internal class EmdkScanner(
 
         when (p0.state) {
             StatusData.ScannerStates.IDLE -> readBarcode()
-
             else -> {}
         }
 

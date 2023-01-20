@@ -46,6 +46,22 @@ For **maven**
     <version>1.0</version>
 </dependency>
 ```
+## How to initialize:
+```kotlin
+val rxZebraScanner = RxZebraScanner(applicationContext)
+```
+
+## How to use:
+```kotlin
+rxZebraScanner.getScannerAsObserve().subscribeOn(Schedulers.io())
+    .observeOn(AndroidSchedulers.mainThread()).subscribe() {
+        Toast.makeText(applicationContext, it, Toast.LENGTH_SHORT).show()
+    }
+```
+
+
+
+
 ## TODO
 * Complete working on it
 
